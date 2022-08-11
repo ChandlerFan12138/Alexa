@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="Alexa:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/Alexa_war</output-path>
+    <root id="archive" name="Alexa_war.war">
+      <element id="artifact" artifact-name="Alexa:war exploded" />
+    </root>
+  </artifact>
+</component>
