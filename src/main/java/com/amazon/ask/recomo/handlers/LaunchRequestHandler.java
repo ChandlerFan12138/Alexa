@@ -1,12 +1,17 @@
 package com.amazon.ask.recomo.handlers;
 
+import com.amazon.ask.attributes.persistence.PersistenceAdapter;
+import com.amazon.ask.builder.SkillBuilder;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.exception.PersistenceException;
 import com.amazon.ask.model.LaunchRequest;
+import com.amazon.ask.model.RequestEnvelope;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.request.Predicates;
 
 
+import java.util.Map;
 import java.util.Optional;
 
 public class LaunchRequestHandler implements RequestHandler {
@@ -18,6 +23,7 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
+
         String speechText = "Hello, welcome to recomo, I can introduce and suggest movies for you, Say number one for get movies by type," +
                 "number two for get movies by actor or actress, number three for introduction for specific movie. " +
                 "Also you can say cancel at any time to stop Recomo.";

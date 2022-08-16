@@ -61,7 +61,7 @@ public class SpecificMovieByPerson implements RequestHandler {
         if(movieNow.actor!=null&&movieNow.actress!=null){
             speech3 = movieNow.actor+" and "+ movieNow.actress;
         }
-        else if(ret.get(random).actor!=null){
+        else if(movieNow.actor!=null){
             speech3 = movieNow.actor;
         }
         else  speech3 = movieNow.actress;

@@ -1,5 +1,8 @@
 package com.amazon.ask.recomo.dao;
 
+import com.amazon.ask.attributes.persistence.PersistenceAdapter;
+import com.amazon.ask.exception.PersistenceException;
+import com.amazon.ask.model.RequestEnvelope;
 import com.amazon.ask.recomo.domain.movie;
 
 import java.sql.Connection;
@@ -9,18 +12,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
-public class SQLSyntax {
+public class SQLSyntax  {
     public Connection con;
 
     public SQLSyntax(){
         ConnectionDao.RetriveConnection();
         con = ConnectionDao.con;
     }
+
     public ArrayList<movie> SelectByType(String movietype) throws SQLException, InterruptedException {
         //      step1: Get all the movie type in the database
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("select distinct Type from Movie");
+
+
 
         //      step2: Use Map tp store the relevence of name to avoid identification error
         Map<String,Double> movieCheck = new HashMap<>();
@@ -151,6 +158,8 @@ public class SQLSyntax {
         }
         return (double) characterCount/nameLength;
     }
+
+
     /*Test code here*/
 //    public static void main(String[] args) throws SQLException, InterruptedException {
 //        SQLSyntax one = new SQLSyntax();
